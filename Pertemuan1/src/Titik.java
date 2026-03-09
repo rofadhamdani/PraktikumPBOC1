@@ -1,21 +1,22 @@
 /* Nama File   : Titik.java
  * Deskripsi   : berisi atribut dan method dalam class Titik
- * Pembuat     : Muhammad Rofad Hamdani / 24060121130090
+ * Pembuat     : Muhammad Rofad Hamdani / 24060124130117 / C1
  * Tanggal     : 20 Februari 2026
  */
 
 public class Titik {
-    /***************ATRIBUT***************/
+    /*************** ATRIBUT ***************/
     double absis;
     double ordinat;
 
-    /***************METHOD***************/
+    /*************** KONSTRUKTOR ***************/
     //konstruktor untuk membuat titik (0,0)
     Titik(){
         absis = 0;
         ordinat = 0;
     }
 
+    /*************** SELEKTOR ***************/
     //mengembalikan nilai absis
     double getAbsis(){
         return absis;
@@ -26,6 +27,7 @@ public class Titik {
         return ordinat;
     }
 
+    /*************** MUTATOR ***************/
     //mengeset absis titik dengan nilai baru x
     void setAbsis(double x){
         absis = x;
@@ -36,6 +38,7 @@ public class Titik {
         ordinat = y;
     }
 
+    /*************** METHOD LAIN ***************/
     //menggeser nilai absis dan ordinat titik masing-masing sejauh x dan y
     void geser(double x, double y){
         absis = absis + x;
