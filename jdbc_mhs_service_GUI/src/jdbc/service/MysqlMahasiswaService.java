@@ -108,4 +108,57 @@ public class MysqlMahasiswaService {
     }
     return mahasiswaList;
   }
+
+  public void indexReset() throws SQLException {
+    String query = "ALTER TABLE mahasiswa AUTO_INCREMENT = 1";
+    try{
+      Statement s = koneksi.createStatement();
+      s.executeUpdate(query);
+      System.out.println("berhasil reset indeks");
+    }
+    catch (SQLException e){
+      e.printStackTrace();
+      throw e;
+    }
+  }
+
+  public boolean isEmpty(){
+    String query = "SELECT COUNT(*) FROM mahasiswa";
+    try{
+      Statement s = koneksi.createStatement();
+      ResultSet rs = s.executeQuery(query);
+      if (rs.next()){
+        return rs.getInt(1) == 0;
+      }
+    }
+    catch (SQLException e){
+      e.printStackTrace();
+    }
+    return false;
+  }
+
+  public void closeConnection(){
+    if (koneksi != null){
+      try{
+        koneksi.close();
+        System.out.println("Koneksi ditutup");
+      }
+      catch (SQLException e){
+        e.printStackTrace();
+      }
+    }
+  }
+
+  public void add(String nama) throws SQLException{
+    String query = "INSERT INTO mahasiswa (nama) VALUES ('" + nama + "')";
+    try{
+      Statement s = koneksi.createStatement();
+      s.executeUpdate(query);
+      System.out.println("berhasil insert");
+    }
+    catch (SQLException e){
+      e.printStackTrace();
+      throw e;
+    }
+  }
 }

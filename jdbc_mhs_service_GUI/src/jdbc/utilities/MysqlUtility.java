@@ -29,7 +29,7 @@ public class MysqlUtility {
                 String url = "jdbc:mysql://localhost:3307/jdbc_mhs";
                 // sesuaikan username dan password
                 String user = "root";
-                String password = "mysqlpw123";
+                String password = "pwmysql123";
                 koneksi = DriverManager.getConnection(url, user, password);
                 if (koneksi != null) {
                     System.out.println("Koneksi berhasil");
